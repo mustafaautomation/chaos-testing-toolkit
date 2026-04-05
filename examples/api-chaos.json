@@ -1,0 +1,34 @@
+{
+  "name": "API Resilience Test",
+  "description": "Inject latency, errors, and rate limits into API calls",
+  "faults": [
+    {
+      "name": "slow-auth",
+      "type": "latency",
+      "target": "/api/login",
+      "probability": 0.5,
+      "config": { "minMs": 2000, "maxMs": 5000 }
+    },
+    {
+      "name": "db-error",
+      "type": "error",
+      "target": "/api/users",
+      "probability": 0.3,
+      "config": { "statusCode": 503, "body": { "error": "Database connection lost" } }
+    },
+    {
+      "name": "payment-timeout",
+      "type": "timeout",
+      "target": "/api/checkout",
+      "probability": 0.2,
+      "config": { "afterMs": 30000 }
+    },
+    {
+      "name": "rate-limit",
+      "type": "rate-limit",
+      "target": "/api/*",
+      "probability": 0.1,
+      "config": { "maxRequests": 100, "windowMs": 60000 }
+    }
+  ]
+}
