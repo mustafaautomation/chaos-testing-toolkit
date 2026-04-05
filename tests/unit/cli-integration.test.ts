@@ -1,8 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll } from 'vitest';
 import { execSync } from 'child_process';
 import path from 'path';
 
-const CLI_PATH = path.resolve(__dirname, '../../dist/cli.js');
+const ROOT = path.resolve(__dirname, '../..');
+const CLI_PATH = path.resolve(ROOT, 'dist/cli.js');
 
 function runCli(args: string): string {
   return execSync(`node ${CLI_PATH} ${args}`, {
@@ -12,6 +13,9 @@ function runCli(args: string): string {
 }
 
 describe('CLI integration', () => {
+  beforeAll(() => {
+    execSync('npm run build', { cwd: ROOT, stdio: 'pipe' });
+  });
   it('should display help output with --help', () => {
     const output = runCli('--help');
 
