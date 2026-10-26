@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/mustafaautomation/chaos-testing-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/mustafaautomation/chaos-testing-toolkit/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
 Application-layer chaos testing for QA teams. Inject latency, errors, timeouts, and rate limits between your app and its dependencies. No Kubernetes required.
 
